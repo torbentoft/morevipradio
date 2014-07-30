@@ -4,10 +4,10 @@
     id        = "com.phonegap.example"
     version   = "1.0.0">
 
-<name>more VIP radio</name>
+<name>moreVIPradio</name>
 
 <description>
-An radio App from morevipradio.com
+A radio App from morevipradio.com
 </description>
 
 <author href="https://morevipradio.com" email="vipapp@morevipradio.com">
