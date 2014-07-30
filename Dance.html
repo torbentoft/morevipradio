@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="style.css" rel="stylesheet" type="text/css">
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type='text/javascript' src='http://cdn.jsdelivr.net/jquery.marquee/1.3.1/jquery.marquee.min.js'></script>
+<script type="text/javascript" src="cycle.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+// banner slideshow	----------------------------------------------------------
+		 $("#banner").cycle({
+			fx:      'scrollLeft', 
+    speed:    500, 
+    timeout:  3000 
+			});
+			
+// banner slideshow slut -----------------------------------------------------					
+$('.marquee').marquee();	
+
+});
+	// audioplayer ----------------------------------------------------------------		
+	//En variabel der holder styr på om musikken spiller 
+ var status = "stopped";
+//Funktion der bliver trigget af play knap 
+function playMusic(){
+//Hvis musikken ikke spiller skal den sættes igang, knappen skal skifte og status skal skifte	
+if (status == "stopped"){
+	
+$('#musik').load();
+$("#musik").trigger('play');
+$("#btn").text("STOP");
+status = "playing";
+
+}
+//Hvis musikken spiller skal den stoppe, knappen skal skifte og status skal skifte
+else{
+	
+$("#musik").trigger('pause');
+ $("#musik").prop("currentTime",0);
+ $("#btn").text("PLAY");	
+status = "stopped";	
+}
+}
+/*function stopMusic(){
+$("#musik").trigger('pause');
+ $("#musik").prop("currentTime",0);
+
+}*/	
+// audioplayer slut -----------------------------------------------------	
+
+</script>
+</head>
+
+<body>
+<div class="wrapper">
+  <header>
+    <div align="left"><a href="index.html"><img src="images/back_btn_gray.png" width="auto" height="24px" alt=""/></a></div>
+  </header>
+    <div id="table"><table align="center" table width="245px">
+    <tr>
+      <td><audio src="http://108.163.197.114:8009/;stream.mp3" id="musik" loop ></audio>
+      <a href="#" onclick="playMusic()" id="btn">PLAY</a></td>
+      <td><img src="images/vip_dance_bred.png" alt="" width="200px" height="auto" /></td>
+      <!--<a href="#" onclick="stopMusic()">STOP</a>--></td>
+    </tr>
+</table>
+</div>
+<br>
+    <div class="marquee"><a href="http://cp9.shoutcheap.com:2199/system/streaminfo.js" id="cc_strinfo_song_vipradio" class="cc_streaminfo">Loading ...</a></div>
+    <!-- <div class="marquee">jQuery marquee is the best <b>marquee</b> plugin in the world</div>--> 
+    <br />
+    <div class="imagecontainer"><img id="cc_strinfo_trackimageurl_vipradio" class="cc_streaminfo" width="100%" height="auto"/></div>
+    <br />
+  </div>
+  <footer>
+<div id="banner"><iframe src="http://www.morevipradio.com/app/banner/dance/dban_1.htm" scrolling="no" width="320px" frameborder="0" height="85px"></iframe></div>
+    <div id="sponsor"><iframe src="http://www.morevipradio.com/app/banner/dance/dsponsor.htm" scrolling="no" width="320px" frameborder="0" height="75px"></iframe></div>
+  </footer>
+  <script language="javascript" type="text/javascript" src="http://cp9.shoutcheap.com:2199/system/streaminfo.js"></script>
+</body>
+</html>
